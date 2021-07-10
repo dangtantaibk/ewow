@@ -3,7 +3,7 @@ import React from 'react';
 import {View, Text, Button, Assets, Colors, Card} from 'react-native-ui-lib';
 import {ScrollView} from 'react-native';
 import DayOfWeek from '../components/DayOfWeek';
-import Header from '../components/Header';
+import HeaderBookDetail from '../components/HeaderBookDetail';
 import CurrentReading from '../components/CurrentReading';
 import HighlightsReading from '../components/HighlightsReading';
 import ForYouReading from '../components/ForYouReading';
@@ -13,7 +13,7 @@ const HomeScreen = () => {
   const navigation = useNavigation();
   return (
     <View flex backgroundColor={Colors.whiteColor}>
-      <Header
+      <HeaderBookDetail
         title="Home"
         onPressMenu={() => {
           navigation.openDrawer();

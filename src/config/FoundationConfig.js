@@ -8,6 +8,7 @@ Assets.loadAssetsGroup('icons', {
   search: require('../assets/icons/e_search.png'),
   arrowRight: require('../assets/icons/arrowRight.png'),
   readingPercent: require('../assets/icons/readingPercent.png'),
+  medal: require('../assets/icons/medal.png'),
 });
 
 Assets.loadAssetsGroup('images', {
@@ -31,7 +32,7 @@ Typography.loadTypographies({
     fontFamily: 'Montserrat',
     lineHeight: 17,
   },
-  body: {fontSize: 18, fontWeight: '400', fontFamily: 'Montserrat'},
+  headingN: {fontSize: 18, fontWeight: '400', fontFamily: 'Montserrat'},
   title: {
     fontSize: 14,
     fontWeight: '400',
@@ -49,6 +50,8 @@ Typography.loadTypographies({
     fontWeight: '400',
     fontFamily: 'Montserrat',
   },
+  bookTitle: {fontSize: 11, fontWeight: '300', fontFamily: 'Lato'},
+  arthurText: {fontSize: 12, fontWeight: '400', fontFamily: 'Lato'},
 });
 
 Spacings.loadSpacings({
@@ -79,6 +82,8 @@ Colors.loadSchemes({
 
 Colors.loadColors({
   primaryColor: '#153F85',
+  primaryColor700: '#3077B1',
+  primaryColor100: '#D1EFF7',
   secondaryColor: '#D1EFF7',
   thirdColor: '#4FD2B4',
   textColor: '##221D23',
@@ -88,6 +93,7 @@ Colors.loadColors({
   blackColor: '#000000',
   whiteColor: '#FFFFFF',
   greyColor: '#6D6D6D',
+  borderColor: '#EEEDF2',
 });
 
 /* Components */

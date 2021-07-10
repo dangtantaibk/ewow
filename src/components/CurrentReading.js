@@ -1,45 +1,98 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {Text, Card, Spacings, View, Image, Assets} from 'react-native-ui-lib';
+import {Text, Button, View, Image, Assets} from 'react-native-ui-lib';
 import _ from 'lodash';
 import {Colors} from 'react-native-ui-lib';
-import {Alert, ScrollView} from 'react-native';
+import {ScrollView, ImageBackground} from 'react-native';
 
 const CurrentReading = ({title}) => {
-  const Page = ({children, style, ...others}) => {
-    return <View {...others}>{children}</View>;
-  };
-
-  const onPagePress = index => {
-    Alert.alert(index);
-  };
   return (
     <View>
-      <View centerV marginB-20>
+      <View centerV marginB-20 marginH-15>
         <Text subheading blackColor>
           Đang đọc
         </Text>
       </View>
       <ScrollView
-        style={{height: 160, marginBottom: 20, paddingVertical: 10}}
+        style={{height: 180, marginBottom: 20}}
+        contentContainerStyle={{
+          justifyContent: 'center',
+          alignContent: 'center',
+          paddingHorizontal: 15,
+        }}
         horizontal
         showsHorizontalScrollIndicator={false}>
-        {_.times(4, i => {
+        {_.times(7, i => {
           return (
-            <Card
-              key={i}
-              width={100}
-              style={{marginRight: 20}}
-              backgroundColor={Colors.white}>
-              <View padding-15>
-                <Text text30 grey30>
-                  {i}
-                </Text>
-              </View>
-            </Card>
+            <View width={100} height={160}>
+              <ImageBackground
+                source={Assets.images.cover2}
+                style={{
+                  resizeMode: 'cover',
+                  justifyContent: 'center',
+                  width: 100,
+                  height: 160,
+                }}>
+                <View
+                  center
+                  abs
+                  style={{
+                    top: 3,
+                    right: 0,
+                    justifyContent: 'center',
+                    alignContent: 'center',
+                  }}>
+                  <ImageBackground
+                    source={Assets.icons.readingPercent}
+                    style={{
+                      flex: 1,
+                      resizeMode: 'cover',
+                      justifyContent: 'center',
+                      width: 40,
+                      height: 46,
+                      alignContent: 'center',
+                    }}>
+                    <Text
+                      style={{position: 'absolute', top: 5, right: 10}}
+                      miniText
+                      blackColor>
+                      35%
+                    </Text>
+                  </ImageBackground>
+                </View>
+              </ImageBackground>
+            </View>
           );
         })}
       </ScrollView>
+
+      <View row center marginB-20 marginH-15>
+        <Image source={Assets.icons.medal} width={72} height={71} />
+        <View marginL-11>
+          <Text title blackColor marginB-11>
+            Thử thách đọc sách 2021
+          </Text>
+          <View width={87} height={27}>
+            <Button
+              style={{height: 27}}
+              size={1}
+              outline
+              borderRadius={10}
+              blackColor
+              label="Tham gia"
+              title
+              outlineColor={Colors.blackColor}
+            />
+          </View>
+        </View>
+      </View>
+
+      <View
+        height={1}
+        backgroundColor={Colors.borderColor}
+        marginH-30
+        marginT-30
+      />
     </View>
   );
 };
