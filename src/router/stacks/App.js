@@ -6,16 +6,25 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 const Drawer = createDrawerNavigator();
 
 import HomeScreen from '../../screens/HomeScreen';
+import LoginScreen from '../../screens/LoginScreen';
 import SearchScreen from '../../screens/SearchScreens/SearchScreen';
 import BookDetailScreen from '../../screens/BookDetailScreen';
 
 const App = props => {
   const Root = () => {
     return (
-      <Stack.Navigator initialRouteName={'BOOK_DETAIL_SCREEN'}>
+      <Stack.Navigator initialRouteName={'LOGIN_SCREEN'}>
         <Stack.Screen
           name="HOME_SCREEN"
           component={HomeScreen}
+          options={({navigation, route}) => ({
+            headerTitle: null,
+            headerTransparent: true,
+          })}
+        />
+        <Stack.Screen
+          name="LOGIN_SCREEN"
+          component={LoginScreen}
           options={({navigation, route}) => ({
             headerTitle: null,
             headerTransparent: true,

@@ -31,7 +31,7 @@ const HighlightsReading = ({title}) => {
         showsHorizontalScrollIndicator={false}>
         {_.times(7, i => {
           return (
-            <View width={100} height={160}>
+            <View key={i} width={100} height={160}>
               <ImageBackground
                 source={Assets.images.cover1}
                 style={{

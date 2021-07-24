@@ -2,9 +2,16 @@ import {ThemeManager, Colors} from 'react-native-ui-lib';
 
 // with a dynamic function
 ThemeManager.setComponentTheme('Button', (props, context) => {
-  if (props.square) {
+  if (props.shadow) {
     return {
-      borderRadius: 0,
+      shadowColor: '#000000',
+      shadowOffset: {
+        width: 0,
+        height: 20,
+      },
+      shadowOpacity: 1,
+      shadowRadius: 100.3,
+      elevation: 100000000,
     };
   }
 });

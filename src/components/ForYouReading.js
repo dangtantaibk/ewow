@@ -21,7 +21,7 @@ const ForYouReading = ({title}) => {
         </TouchableOpacity>
       </View>
       <ScrollView
-        style={{ marginBottom: 20}}
+        style={{marginBottom: 20}}
         contentContainerStyle={{
           justifyContent: 'center',
           alignContent: 'center',
@@ -31,7 +31,7 @@ const ForYouReading = ({title}) => {
         showsHorizontalScrollIndicator={false}>
         {_.times(7, i => {
           return (
-            <View width={100}>
+            <View key={i} width={100}>
               <ImageBackground
                 source={Assets.images.cover7}
                 style={{
@@ -41,7 +41,9 @@ const ForYouReading = ({title}) => {
                   height: 160,
                 }}
               />
-              <Text arthur marginT-15 marginB-5>Elon Musk</Text>
+              <Text arthur marginT-15 marginB-5>
+                Elon Musk
+              </Text>
               <Text bookTitle>Ashlee Vance</Text>
             </View>
           );

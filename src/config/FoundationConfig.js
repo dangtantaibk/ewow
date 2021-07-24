@@ -9,6 +9,9 @@ Assets.loadAssetsGroup('icons', {
   arrowRight: require('../assets/icons/arrowRight.png'),
   readingPercent: require('../assets/icons/readingPercent.png'),
   medal: require('../assets/icons/medal.png'),
+  appleLogo: require('../assets/icons/appleLogo.png'),
+  fbIcon: require('../assets/icons/fbIcon.png'),
+  googleIcon: require('../assets/icons/googleIcon.png'),
 });
 
 Assets.loadAssetsGroup('images', {
@@ -22,10 +25,19 @@ Assets.loadAssetsGroup('images', {
   cover6: require('../assets/images/cover-6.png'),
   cover7: require('../assets/images/cover-7.png'),
   cover8: require('../assets/images/cover-8.png'),
+  backgroundLogin: require('../assets/images/backgroundLogin.png'),
+  termBackground: require('../assets/images/termBackground.png'),
+  termBackgroundEx: require('../assets/images/termBackgroundEx.png'),
 });
 
 Typography.loadTypographies({
   heading: {fontSize: 18, fontWeight: '500', fontFamily: 'Montserrat'},
+  loginText: {
+    fontSize: 18,
+    fontWeight: '700',
+    lineHeight: 22,
+    fontFamily: 'Montserrat',
+  },
   subheading: {
     fontSize: 14,
     fontWeight: '700',
@@ -94,6 +106,9 @@ Colors.loadColors({
   whiteColor: '#FFFFFF',
   greyColor: '#6D6D6D',
   borderColor: '#EEEDF2',
+  loginBackgroundColor: '#26C4DE',
+  googleColor: '#3F3C59',
+  fbBackgroundColor: '#1877F2',
 });
 
 /* Components */
