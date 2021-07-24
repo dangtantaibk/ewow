@@ -9,8 +9,12 @@ import HomeScreen from '../../screens/HomeScreen';
 import LoginScreen from '../../screens/LoginScreen';
 import SearchScreen from '../../screens/SearchScreens/SearchScreen';
 import BookDetailScreen from '../../screens/BookDetailScreen';
+import SplashScreen from 'react-native-splash-screen';
 
 const App = props => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
   const Root = () => {
     return (
       <Stack.Navigator initialRouteName={'LOGIN_SCREEN'}>

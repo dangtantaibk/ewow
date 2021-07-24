@@ -5,6 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 import {Assets} from 'react-native-ui-lib';
 import {Dimensions} from 'react-native';
 import {ImageBackground} from 'react-native';
+import { useEffect } from 'react';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
