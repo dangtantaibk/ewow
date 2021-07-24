@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-
+#import "SplashScreen.h"
 #if RCT_DEV
 #import <React/RCTDevLoadingView.h>
 #endif
@@ -15,7 +15,7 @@
 #import <FlipperKitNetworkPlugin/FlipperKitNetworkPlugin.h>
 #import <SKIOSNetworkPlugin/SKIOSNetworkAdapter.h>
 #import <FlipperKitReactPlugin/FlipperKitReactPlugin.h>
-#import "SplashScreen.h"
+
 
 
 static void InitializeFlipper(UIApplication *application) {
