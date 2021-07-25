@@ -12,6 +12,7 @@ Assets.loadAssetsGroup('icons', {
   appleLogo: require('../assets/icons/appleLogo.png'),
   fbIcon: require('../assets/icons/fbIcon.png'),
   googleIcon: require('../assets/icons/googleIcon.png'),
+  appIcon: require('../assets/icons/appIcon.png'),
 });
 
 Assets.loadAssetsGroup('images', {
