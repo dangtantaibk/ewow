@@ -13,6 +13,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		28A7AE698229437BB0AB026A /* Montserrat-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DA5390DEB4C447B8C95F160 /* Montserrat-LightItalic.ttf */; };
+		2963707826AD2737007F07D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2963707726AD2737007F07D5 /* GoogleService-Info.plist */; };
 		2EBBAB3D7A46F6E2C5117820 /* libPods-Ewow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18247F2BF33C7BE8D7F095BD /* libPods-Ewow.a */; };
 		35486A99E0BE4A6CBABE51D3 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2BF16FB9A95B4257AFA2ACFD /* Montserrat-Black.ttf */; };
 		3DA6F0373A1C4B0AA66603C4 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E685FE45DDE4FE08B76B241 /* Montserrat-Light.ttf */; };
@@ -77,6 +78,7 @@
 		248B8290250B482F89D752FA /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Bold.ttf"; path = "../src/assets/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		26AFB50D149F3767B8EFC85E /* Pods-Ewow-EwowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ewow-EwowTests.debug.xcconfig"; path = "Target Support Files/Pods-Ewow-EwowTests/Pods-Ewow-EwowTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2717C1F8B61E45EEB283CDC1 /* Montserrat-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-ThinItalic.ttf"; path = "../src/assets/fonts/Montserrat-ThinItalic.ttf"; sourceTree = "<group>"; };
+		2963707726AD2737007F07D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Ewow/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2BF16FB9A95B4257AFA2ACFD /* Montserrat-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Black.ttf"; path = "../src/assets/fonts/Montserrat-Black.ttf"; sourceTree = "<group>"; };
 		2F09B29C43FB4612A7501206 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Regular.ttf"; path = "../src/assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		3177562965074D52B3A60A76 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-SemiBold.ttf"; path = "../src/assets/fonts/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 		13B07FAE1A68108700A75B9A /* Ewow */ = {
 			isa = PBXGroup;
 			children = (
+				2963707726AD2737007F07D5 /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -372,6 +375,7 @@
 				4346F84AFFA043DC8EDFFA60 /* Lato-BoldItalic.ttf in Resources */,
 				4BA66B90473D439D865A3933 /* Lato-Italic.ttf in Resources */,
 				8BA1C8B8C5F14892B4E02F96 /* Lato-Light.ttf in Resources */,
+				2963707826AD2737007F07D5 /* GoogleService-Info.plist in Resources */,
 				71288233C6B84C879216159E /* Lato-LightItalic.ttf in Resources */,
 				C1F84B052A4C4EDA9D5C782E /* Lato-Regular.ttf in Resources */,
 				A675831EADD44C4B937A297B /* Lato-Thin.ttf in Resources */,
