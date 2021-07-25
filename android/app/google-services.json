@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "474017321493",
+    "project_id": "ewow-b72d6",
+    "storage_bucket": "ewow-b72d6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:474017321493:android:6b15e2d0a11cbb3e59b41c",
+        "android_client_info": {
+          "package_name": "com.ewow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "474017321493-1rbhb1b1u6b1svg484i3a8t1u4ea5t2c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ewow",
+            "certificate_hash": "07c9b3b59a666ad9d04a1f35768f6bdb6ff0b45e"
+          }
+        },
+        {
+          "client_id": "474017321493-g7bl5kacbu2aqho2i4silsao4etlanlm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGHJqYjSuGeHrHq38ekgE_02qbkRqrvTk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "474017321493-g7bl5kacbu2aqho2i4silsao4etlanlm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "474017321493-s13l4f8om0bf499tmog71hd2d0juhu9s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kido.base"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

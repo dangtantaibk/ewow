@@ -11,11 +11,20 @@ import {
 } from '@react-native-google-signin/google-signin';
 
 const LoginScreen = () => {
+  const hasPlayServices = async () => {
+    try {
+      await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+      // google services are available
+    } catch (err) {
+      console.error('play services are not available');
+    }
+  };
   const signIn = async () => {
     try {
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
       console.log(userInfo);
+      alert(userInfo);
     } catch (error) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow
