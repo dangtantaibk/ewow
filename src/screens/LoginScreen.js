@@ -3,7 +3,7 @@ import React from 'react';
 import {View, Text, Colors, Button, Image} from 'react-native-ui-lib';
 import {useNavigation} from '@react-navigation/native';
 import {Assets} from 'react-native-ui-lib';
-import {Dimensions} from 'react-native';
+import {Dimensions, Platform} from 'react-native';
 const windowWidth = Dimensions.get('window').width;
 import {
   GoogleSignin,
@@ -11,6 +11,10 @@ import {
 } from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
 import {LoginManager, AccessToken} from 'react-native-fbsdk-next';
+import {
+  AppleAuth,
+  appleAuth,
+} from '@invertase/react-native-apple-authentication';
 
 const LoginScreen = () => {
   const hasPlayServices = async () => {
@@ -65,6 +69,29 @@ const LoginScreen = () => {
 
     // Sign-in the user with the credential
     return auth().signInWithCredential(facebookCredential);
+  }
+
+  async function onAppleButtonPress() {
+    // Start the sign-in request
+    const appleAuthRequestResponse = await appleAuth.performRequest({
+      requestedOperation: appleAuth.Operation.LOGIN,
+      requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME],
+    });
+
+    // Ensure Apple returned a user identityToken
+    if (!appleAuthRequestResponse.identityToken) {
+      throw 'Apple Sign-In failed - no identify token returned';
+    }
+
+    // Create a Firebase credential from the response
+    const {identityToken, nonce} = appleAuthRequestResponse;
+    const appleCredential = auth.AppleAuthProvider.credential(
+      identityToken,
+      nonce,
+    );
+
+    // Sign the user in with the credential
+    return auth().signInWithCredential(appleCredential);
   }
 
   const navigation = useNavigation();
@@ -156,30 +183,37 @@ const LoginScreen = () => {
             </Button>
           </View>
 
-          <View marginT-36 width={300} height={64}>
-            <Button
-              size={1}
-              enableShadow
-              shadow
-              borderRadius={50}
-              style={{
-                shadowColor: Colors.blackColor,
-                shadowOffset: {
-                  width: 0,
-                  height: 6,
-                },
-                shadowOpacity: 0.12,
-                shadowRadius: 8.3,
-                elevation: 1,
-                height: 64,
-              }}
-              backgroundColor={Colors.blackColor}>
-              <Image source={Assets.icons.appleLogo} />
-              <Text marginL-10 whiteColor>
-                Tiếp tục với Apple ID
-              </Text>
-            </Button>
-          </View>
+          {Platform.OS === 'ios' && (
+            <View marginT-36 width={300} height={64}>
+              <Button
+                onPress={() =>
+                  onAppleButtonPress().then(() =>
+                    console.log('Apple sign-in complete!'),
+                  )
+                }
+                size={1}
+                enableShadow
+                shadow
+                borderRadius={50}
+                style={{
+                  shadowColor: Colors.blackColor,
+                  shadowOffset: {
+                    width: 0,
+                    height: 6,
+                  },
+                  shadowOpacity: 0.12,
+                  shadowRadius: 8.3,
+                  elevation: 1,
+                  height: 64,
+                }}
+                backgroundColor={Colors.blackColor}>
+                <Image source={Assets.icons.appleLogo} />
+                <Text marginL-10 whiteColor>
+                  Tiếp tục với Apple ID
+                </Text>
+              </Button>
+            </View>
+          )}
         </View>
       </View>
       <View bottom height={140}>
@@ -226,12 +260,3 @@ const LoginScreen = () => {
 };
 
 export default LoginScreen;
-
-// <ImageBackground
-// source={Assets.images.termBackgroundEx}
-// style={{
-//   width: windowWidth,
-//   height: 140,
-// }}>
-
-// </ImageBackground>
