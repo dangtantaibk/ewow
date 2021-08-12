@@ -23,6 +23,14 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.474017321493-s13l4f8om0bf499tmog71hd2d0juhu9s</string>
+			</array>
+			<key>CFBundleURLName</key>
+			<string></string>
+		</dict>
+		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>

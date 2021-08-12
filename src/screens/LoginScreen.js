@@ -25,24 +25,17 @@ const LoginScreen = () => {
       console.error('play services are not available');
     }
   };
-  const signIn = async () => {
-    try {
-      await GoogleSignin.hasPlayServices();
-      const userInfo = await GoogleSignin.signIn();
-      console.log(userInfo);
-      alert(userInfo);
-    } catch (error) {
-      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-        // user cancelled the login flow
-      } else if (error.code === statusCodes.IN_PROGRESS) {
-        // operation (e.g. sign in) is in progress already
-      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-        // play services not available or outdated
-      } else {
-        // some other error happened
-      }
-    }
-  };
+
+  async function onGoogleButtonPress() {
+    // Get the users ID token
+    const {idToken} = await GoogleSignin.signIn();
+
+    // Create a Google credential with the token
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+
+    // Sign-in the user with the credential
+    return auth().signInWithCredential(googleCredential);
+  }
 
   async function onFacebookButtonPress() {
     // Attempt login with permissions
@@ -129,7 +122,11 @@ const LoginScreen = () => {
 
           <View marginT-52 width={300} height={64}>
             <Button
-              onPress={signIn}
+              onPress={() =>
+                onGoogleButtonPress().then(() =>
+                  console.log('Signed in with Google!'),
+                )
+              }
               size={1}
               enableShadow
               shadow
