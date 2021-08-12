@@ -9,11 +9,13 @@ import {
   GoogleSignin,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
+import auth from '@react-native-firebase/auth';
+import {LoginManager, AccessToken} from 'react-native-fbsdk-next';
 
 const LoginScreen = () => {
   const hasPlayServices = async () => {
     try {
-      await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+      await GoogleSignin.hasPlayServices({showPlayServicesUpdateDialog: true});
       // google services are available
     } catch (err) {
       console.error('play services are not available');
@@ -37,6 +39,34 @@ const LoginScreen = () => {
       }
     }
   };
+
+  async function onFacebookButtonPress() {
+    // Attempt login with permissions
+    const result = await LoginManager.logInWithPermissions([
+      'public_profile',
+      'email',
+    ]);
+
+    if (result.isCancelled) {
+      throw 'User cancelled the login process';
+    }
+
+    // Once signed in, get the users AccesToken
+    const data = await AccessToken.getCurrentAccessToken();
+
+    if (!data) {
+      throw 'Something went wrong obtaining access token';
+    }
+
+    // Create a Firebase credential with the AccessToken
+    const facebookCredential = auth.FacebookAuthProvider.credential(
+      data.accessToken,
+    );
+
+    // Sign-in the user with the credential
+    return auth().signInWithCredential(facebookCredential);
+  }
+
   const navigation = useNavigation();
   return (
     <View flex backgroundColor={Colors.loginBackgroundColor}>
@@ -98,6 +128,11 @@ const LoginScreen = () => {
 
           <View marginT-36 width={300} height={64}>
             <Button
+              onPress={() =>
+                onFacebookButtonPress().then(() =>
+                  console.log('Signed in with Facebook!'),
+                )
+              }
               size={1}
               enableShadow
               shadow
