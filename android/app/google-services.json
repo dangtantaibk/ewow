@@ -22,6 +22,22 @@
           }
         },
         {
+          "client_id": "474017321493-ls0vhrlcf4bji2fg0dril94mv9uphlq0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ewow",
+            "certificate_hash": "0d3d2147b7721ad2e2259e35d0da62a93b6ed2e6"
+          }
+        },
+        {
+          "client_id": "474017321493-s1n56r9m36sht6gnmfeno0lrdgk26cfs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ewow",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
           "client_id": "474017321493-g7bl5kacbu2aqho2i4silsao4etlanlm.apps.googleusercontent.com",
           "client_type": 3
         }

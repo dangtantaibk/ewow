@@ -1,40 +1,50 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, Colors, Button, Image} from 'react-native-ui-lib';
-import {useNavigation} from '@react-navigation/native';
-import {Assets} from 'react-native-ui-lib';
-import {Dimensions, Platform} from 'react-native';
+import {useNavigation, StackActions} from '@react-navigation/native';
+import {Assets, LoaderScreen} from 'react-native-ui-lib';
+import {Dimensions, Platform, Modal} from 'react-native';
 const windowWidth = Dimensions.get('window').width;
-import {
-  GoogleSignin,
-  statusCodes,
-} from '@react-native-google-signin/google-signin';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
 import {LoginManager, AccessToken} from 'react-native-fbsdk-next';
-import {
-  AppleAuth,
-  appleAuth,
-} from '@invertase/react-native-apple-authentication';
+import {appleAuth} from '@invertase/react-native-apple-authentication';
+import Loading from '../components/Loading';
 
 const LoginScreen = () => {
-  const hasPlayServices = async () => {
-    try {
-      await GoogleSignin.hasPlayServices({showPlayServicesUpdateDialog: true});
-      // google services are available
-    } catch (err) {
-      console.error('play services are not available');
-    }
+  const [loading, setLoading] = useState(false);
+  const navigation = useNavigation();
+  const home = () => {
+    navigation.dispatch(
+      StackActions.replace('HOME_SCREEN', {
+        user: 'jane',
+      }),
+    );
   };
 
   async function onGoogleButtonPress() {
     // Get the users ID token
     const {idToken} = await GoogleSignin.signIn();
+    console.log('idToken', idToken);
+    setLoading(true);
 
     // Create a Google credential with the token
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+    console.log('googleCredential', googleCredential);
 
     // Sign-in the user with the credential
-    return auth().signInWithCredential(googleCredential);
+    return auth()
+      .signInWithCredential(googleCredential)
+      .then(a => {
+        console.log('credential', a);
+        home();
+      })
+      .catch(e => {
+        console.log('error', e);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }
 
   async function onFacebookButtonPress() {
@@ -54,6 +64,7 @@ const LoginScreen = () => {
     if (!data) {
       throw 'Something went wrong obtaining access token';
     }
+    setLoading(true);
 
     // Create a Firebase credential with the AccessToken
     const facebookCredential = auth.FacebookAuthProvider.credential(
@@ -61,7 +72,11 @@ const LoginScreen = () => {
     );
 
     // Sign-in the user with the credential
-    return auth().signInWithCredential(facebookCredential);
+    return auth()
+      .signInWithCredential(facebookCredential)
+      .finally(() => {
+        setLoading(false);
+      });
   }
 
   async function onAppleButtonPress() {
@@ -76,6 +91,7 @@ const LoginScreen = () => {
       throw 'Apple Sign-In failed - no identify token returned';
     }
 
+    setLoading(true);
     // Create a Firebase credential from the response
     const {identityToken, nonce} = appleAuthRequestResponse;
     const appleCredential = auth.AppleAuthProvider.credential(
@@ -84,12 +100,16 @@ const LoginScreen = () => {
     );
 
     // Sign the user in with the credential
-    return auth().signInWithCredential(appleCredential);
+    return auth()
+      .signInWithCredential(appleCredential)
+      .finally(() => {
+        setLoading(false);
+      });
   }
 
-  const navigation = useNavigation();
   return (
     <View flex backgroundColor={Colors.loginBackgroundColor}>
+      <Loading visible={loading} />
       <View height={200} center>
         <Image
           marginT-50
